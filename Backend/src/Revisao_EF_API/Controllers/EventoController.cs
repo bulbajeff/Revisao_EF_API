@@ -29,7 +29,7 @@ namespace RevisaoEF.Controllers
         [HttpGet("{id}")]
         public Evento GetById(int id)
         {
-            return _context.Eventos.FirstOrDefault(e => e.EventoId == id);            
+            return _context.Eventos.FirstOrDefault(e => e.EventoId == id);
         }
     }
 }
