@@ -6,13 +6,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Revisao_EF_API.Data;
 
-namespace RevisaoEF
+
+namespace Revisao_EF_API
 {
     public class Startup
     {
@@ -26,15 +29,13 @@ namespace RevisaoEF
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddDbContext<DbContext>(
-
-            )
-
+            services.AddDbContext<DataContext>(
+                context => context.UseSqlServer(Configuration.GetConnectionString("Banco16"))
+            );
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RevisaoEF", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Revisao_EF_API", Version = "v1" });
             });
         }
 

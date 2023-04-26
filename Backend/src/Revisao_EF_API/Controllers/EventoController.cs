@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Revisao_EF_API.Data;
 using RevisaoEF.Model;
 
 namespace RevisaoEF.Controllers
@@ -12,15 +13,23 @@ namespace RevisaoEF.Controllers
     [Route("api/[controller]")]
     public class EventoController : ControllerBase
     {
-        public EventoController()
-        {
+        private readonly DataContext _context;
 
+        public EventoController(DataContext context)
+        {
+            _context = context;
         }
 
         [HttpGet]
-        public string Get()
+        public IEnumerable<Evento> Get()
         {
-            return "ok";
+            return _context.Eventos;
+        }
+
+        [HttpGet("{id}")]
+        public Evento GetById(int id)
+        {
+            return _context.Eventos.FirstOrDefault(e => e.EventoId == id);            
         }
     }
 }

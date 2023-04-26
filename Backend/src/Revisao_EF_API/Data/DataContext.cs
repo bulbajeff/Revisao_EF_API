@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using RevisaoEF.Model;
 
-namespace RevisaoEF.Data
+namespace Revisao_EF_API.Data
 {
     public class DataContext : DbContext
     {
@@ -11,5 +13,7 @@ namespace RevisaoEF.Data
         {
             
         }
+
+        public DbSet<Evento> Eventos {get; set; }
     }
 }

@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Revisao_EF_API;
 
-namespace RevisaoEF
+namespace Revisao_EF_API
 {
     public class Program
     {
