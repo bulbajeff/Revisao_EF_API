@@ -13,6 +13,7 @@ export class EventosComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.getEventos();
   }
 
   public getEventos(): void {
