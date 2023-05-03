@@ -8,8 +8,8 @@ import { EventosComponent } from './eventos/eventos.component';
 import { PalestrantesComponent } from './palestrantes/palestrantes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './Nav/Nav.component';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    //TooltipModule.forRoot()
+    CollapseModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
