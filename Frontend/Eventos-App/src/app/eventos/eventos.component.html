@@ -3,7 +3,7 @@
 <form action="" class="form-inline">
   <div class="form-group mb-2">
     <input type="text" class="form-control mr-2" placeholder="buscar">
-    <button class="btn btn-outline_success"></button>
+    <button class="btn btn-outline_success">Buscar</button>
 
   </div>
 </form>
@@ -20,16 +20,23 @@
       <th>Opções</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let evento of eventos">
+      <td>{{evento.eventoId}}</td>
+      <td>{{evento.imagemURL}}</td>
+      <td>{{evento.tema}}</td>
+      <td>{{evento.local}}</td>
+      <td>{{evento.data}}</td>
+      <td>{{evento.qtdPessoas}}</td>
+      <td>{{evento.local}}</td>
       <td></td>
     </tr>
   </tbody>
+  <tfoot *ngIf="!eventos.length">
+    <tr>
+      <td colspan="8" class="text-center">
+      <h4>Nenhum evento encontrado!</h4>
+    </td>
+  </tr>
+  </tfoot>
 </table>
